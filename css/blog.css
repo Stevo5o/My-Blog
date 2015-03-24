@@ -2,9 +2,13 @@
  * Globals
  */
 
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+body {  
   color: #555;
+    font-family: 'Droid Sans', sans-serif;
+    background-color: #FCF4DC;
+/*background http://lea.verou.me/css3patterns/*/
+background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #3C827A 10px, rgba(96, 16, 48, 0) 11px) 0px 10px, radial-gradient(at 100% 100%,     rgba(96, 16, 48, 0) 9px, #3C827A 10px, rgba(96, 16, 48, 0) 11px), #2B575A;
+background-size: 20px 20px;
 }
 
 h1, .h1,
@@ -14,7 +18,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:'Roboto', sans-serif;;
   font-weight: normal;
   color: #333;
 }
@@ -29,11 +33,26 @@ h6, .h6 {
     width: 970px;
   }
 }
+.container {
+  padding:0;
+}
 
+.row{
+  background-color: white;
+  margin: 0;
+}
 
 /*
  * Masthead for nav
  */
+
+ .navbar-inverse {
+  background-color: #428bca;
+ }
+
+ .navbar-inverse .navbar-nav>li>a {
+  
+ }
 
 .blog-masthead {
   background-color: #428bca;
@@ -79,14 +98,17 @@ h6, .h6 {
  */
 
 .blog-header {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px;  
+  background-color: white;
 }
 .blog-title {
   margin-top: 30px;
-  margin-bottom: 0;
-  font-size: 60px;
+  margin-bottom: 0;  
   font-weight: normal;
+  font-variant: small-caps;
+}
+img.s-logo{
+margin:-6px 8px 0;
 }
 .blog-description {
   font-size: 20px;
@@ -106,7 +128,7 @@ h6, .h6 {
 /* Sidebar modules for boxing content */
 .sidebar-module {
   padding: 15px;
-  margin: 0 -15px 15px;
+  margin: 0 0px 15px;
 }
 .sidebar-module-inset {
   padding: 15px;
@@ -126,10 +148,11 @@ h6, .h6 {
   text-align: left;
 }
 .pager > li > a {
-  width: 140px;
-  padding: 10px 20px;
+  width: 70px;
+  padding: 5px;
   text-align: center;
-  border-radius: 30px;
+  border-radius: 3px;
+  font-size: 14px;
 }
 
 
@@ -138,11 +161,12 @@ h6, .h6 {
  */
 
 .blog-post {
-  margin-bottom: 60px;
+  margin-bottom: 60px;  
+  padding:1%;
 }
 .blog-post-title {
-  margin-bottom: 5px;
-  font-size: 40px;
+  margin-bottom: 5px;  
+  font-size: 25px;
 }
 .blog-post-meta {
   margin-bottom: 20px;
