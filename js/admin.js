@@ -42,7 +42,9 @@ $(function() {
                 'click .add-blog': 'add'
             },
             add: function() {
-                alert('Clicked!');
+                var addBlogView = new AddBlogView();
+                addBlogView.render();
+                $('.main-container').html(addBlogView.el);
             },
             render: function() {
                 var attributes = this.model.toJSON();
