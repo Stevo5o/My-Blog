@@ -38,6 +38,12 @@ $(function() {
         }),
         WelcomeView = Parse.View.extend({
             template: Handlebars.compile($('#welcome-tpl').html()),
+            events: {
+                'click .add-blog': 'add'
+            },
+            add: function() {
+                alert('Clicked!');
+            },
             render: function() {
                 var attributes = this.model.toJSON();
                 this.$el.html(this.template(attributes));
@@ -48,5 +54,13 @@ $(function() {
     var loginView = new LoginView();
     loginView.render();
     $('.main-container').html(loginView.el);
+
+    // blog view
+    var AddBlogView = Parse.View.extend({
+        template: Handlebars.compile($('#add-tpl').html()),
+        render: function(){
+            this.$el.html(this.template());
+        }
+    });
 
 }());
