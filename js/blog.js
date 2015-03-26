@@ -7,7 +7,6 @@ $(function() {
 	var Blogs = Parse.Collection.extend({
 		model: Blog
 	});
-	var blogs = new Blogs();
 
 	var BlogsView = Parse.View.extend({
 		template: Handlebars.compile($('#blogs-tpl').html()),
@@ -18,6 +17,7 @@ $(function() {
 			this.$el.html(this.template(collection));
 		}
 	});
+        blogs = new Blogs();
 	blogs.fetch({
 		success: function(blogs) {
 			var blogsView = new BlogsView({
