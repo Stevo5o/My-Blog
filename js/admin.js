@@ -5,13 +5,13 @@ $(function() {
 
     var Blog = Parse.Object.extend('Blog', {
         create: function(title, content) {
-            this.set({
+            this.save({
                 'title': title,
                 'content': content,
                 'author': Parse.User.current()
-            }).save(null, {
+            }, {
                 success: function(blog) {
-                    alert('you added a new blog: ' + blog.get('title'));
+                    alert('You added a new blog: ' + blog.get('title'));
                 },
                 error: function(blog, error) {
                     console.log(blog);
@@ -73,18 +73,18 @@ $(function() {
         });
 
     // blog view
-    var AddBlogView = Parse.View.extend({
+    AddBlogView = Parse.View.extend({
         template: Handlebars.compile($('#add-tpl').html()),
         events: {
             'submit .form-add': 'submit'
         },
         submit: function(e) {
             // prevent default submit
-            e.preventDefualt();
+            e.preventDefault();
             // take the form and put it into a data object
             var data = $(e.target).serializeArray(),
                 // create a new instance of Blog
-                blog = new blog();
+                blog = new Blog();
             // call .create()
             blog.create(data[0].value, data[1].value);
         },
