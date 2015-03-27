@@ -88,10 +88,10 @@ $(function() {
                 // create a new instance of Blog
                 blog = new Blog();
             // call .create()
-            blog.create(data[0].value, data[1].value);
+            blog.create(data[0].value, $('textarea').val());
         },
-        render: function(e) {
-            this.$el.html(this.template());
+        render: function() {
+            this.$el.html(this.template()).find('textarea').wysihtml5();
         }
     });
 
