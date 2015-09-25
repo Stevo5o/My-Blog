@@ -1,3 +1,6 @@
 # My-Blog
-- Create a blog using JS parse.js bootstrap handlebars.js wysihtml
+Create a blog using:
+- Parse.js
+- Bootstrap 
+- Handlebars 
  
