@@ -11,7 +11,10 @@ $(function () {
                 'content': content,
                 'author': Parse.User.current(),
                 'authorName': Parse.User.current().get('username'),
-                'time': new Date().toDateString()
+                'time': new Date().toDateString(),
+                'url': title.LowerCase()
+                .replace(/[^\w ]+/g,'')
+                .replace(/ +/g,'-')
             }, {
                     success: function (blog) {
                         alert('You added a new blog: ' + blog.get('title'));
@@ -21,6 +24,20 @@ $(function () {
                         console.log(error);
                     }
                 });
+        },
+        update: function(title, content) {
+            this.set({
+                'title': title,
+                'content': content
+            }).save(null, {
+                success: function(blog) {
+                    alert('Your blog ' + blog.get('title') + 'has been saved');
+                },
+                error: function(blog, error) {
+                    console.log(blog);
+                    console.log(error);
+                }
+            })
         }
     }),
         // define views
@@ -191,6 +208,11 @@ $(function () {
                     error: function (blog, error) {
                         console.log(error);
                     }
+                }),                
+                query.equalTo("url", id).find().then(function(blogs) {                    
+                    
+                    var blog = blogs[0];
+                    
                 });
             }
         }),
