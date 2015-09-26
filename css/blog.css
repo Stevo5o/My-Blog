@@ -2,13 +2,9 @@
  * Globals
  */
 
-body {  
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
-    font-family: 'Droid Sans', sans-serif;
-    background-color: #FCF4DC;
-/*background http://lea.verou.me/css3patterns/*/
-background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #3C827A 10px, rgba(96, 16, 48, 0) 11px) 0px 10px, radial-gradient(at 100% 100%,     rgba(96, 16, 48, 0) 9px, #3C827A 10px, rgba(96, 16, 48, 0) 11px), #2B575A;
-background-size: 20px 20px;
 }
 
 h1, .h1,
@@ -18,7 +14,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0;
-  font-family:'Roboto', sans-serif;;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #333;
 }
@@ -33,48 +29,64 @@ h6, .h6 {
     width: 970px;
   }
 }
-.container {
-  padding:0;
-}
 
-.row{
-  background-color: white;
-  margin: 0;
-}
 
 /*
  * Masthead for nav
  */
 
-.navbar-right {  
-  margin-right: 0px;
+.blog-masthead {
+  background-color: #428bca;
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+          box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }
 
-.navbar>.container .navbar-brand{margin-left:0px}
+/* Nav links */
+.blog-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 500;
+  color: #cdddeb;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+  color: #fff;
+}
+.blog-nav .active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  vertical-align: middle;
+  content: " ";
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid;
+  border-left: 5px solid transparent;
+}
+
 
 /*
  * Blog name and description
  */
 
 .blog-header {
-  padding: 20px;  
-  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .blog-title {
-  margin-top: 50px;
-  margin-bottom: 0;  
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 60px;
   font-weight: normal;
-  font-variant: small-caps;
-}
-img.s-logo-brand{
-float:left;
-padding: 0 6px;
-margin-top:1.8px;
-}
-img.s-logo{
-float:left;
-padding-right: 8px;
-margin-top:-3px;
 }
 .blog-description {
   font-size: 20px;
@@ -94,7 +106,7 @@ margin-top:-3px;
 /* Sidebar modules for boxing content */
 .sidebar-module {
   padding: 15px;
-  margin: 0 0px 15px;
+  margin: 0 -15px 15px;
 }
 .sidebar-module-inset {
   padding: 15px;
@@ -108,17 +120,17 @@ margin-top:-3px;
 }
 
 
+
 /* Pagination */
 .pager {
   margin-bottom: 60px;
   text-align: left;
 }
 .pager > li > a {
-  width: 70px;
-  padding: 5px;
+  width: 140px;
+  padding: 10px 20px;
   text-align: center;
-  border-radius: 3px;
-  font-size: 14px;
+  border-radius: 30px;
 }
 
 
@@ -127,12 +139,11 @@ margin-top:-3px;
  */
 
 .blog-post {
-  margin-bottom: 60px;  
-  padding:1%;
+  margin-bottom: 60px;
 }
 .blog-post-title {
-  margin-bottom: 5px;  
-  font-size: 25px;
+  margin-bottom: 5px;
+  font-size: 40px;
 }
 .blog-post-meta {
   margin-bottom: 20px;
@@ -154,20 +165,25 @@ margin-top:-3px;
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
-/*admin*/
+
+
+/*
+ * Login Form
+ */
+
 .form-signin {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
+  }
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
     margin-bottom: 10px;
-}
-.form-signin .checkbox {
+  }
+  .form-signin .checkbox {
     font-weight: normal;
-}
-.form-signin .form-control {
+  }
+  .form-signin .form-control {
     position: relative;
     height: auto;
     -webkit-box-sizing: border-box;
@@ -175,17 +191,17 @@ margin-top:-3px;
     box-sizing: border-box;
     padding: 10px;
     font-size: 16px;
-}
-.form-signin .form-control:focus {
+  }
+  .form-signin .form-control:focus {
     z-index: 2;
-}
-.form-signin input[type="text"] {
+  }
+  .form-signin input[type="text"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
+  }
+  .form-signin input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-}
+  }
