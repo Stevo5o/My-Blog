@@ -210,7 +210,7 @@ $(function () {
                     }
                 }),                
                 query.equalTo("url", id).find().then(function(blogs) {                    
-                    
+                    // return all the qualifying blogs in an array
                     var blog = blogs[0];
                     
                 });
