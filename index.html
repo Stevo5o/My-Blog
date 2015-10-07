@@ -14,6 +14,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">   
     <!-- Custom styles for this template -->
     <link href="css/blog.css" rel="stylesheet">
+    <!-- WYSIWYG editor -->
+    <link href="css/bootstrap3-wysihtml5.min.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,7 +30,7 @@
       <div class="container">
         <nav class="blog-nav">
           <a class="blog-nav-item" href="">Home</a>
-          <a class="blog-nav-item" href="admin.html">Admin</a>
+          <a class="blog-nav-item" href="admin">Admin</a>
         </nav>
       </div>
     </div>
@@ -129,9 +131,81 @@
             <div>{{{content}}}</div>
         </div>
         {{/each}}
-    </script>   
+    </script>
+        <!-- login template -->
+    <script id="login-tpl" type="text/x-handlebars-template">
+        <form class="form-signin" role="form">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+            <button class="btn btn-sm btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </script>
+
+    <!--welcome template-->
+    <script id="welcome-tpl" type="text/x-handlebars-template">
+        <h2>Welcome, {{username}}!</h2>
+        <button class="add-blog btn btn-sm btn-primary">Add a New Blog</button>
+    </script>
+
+    <!--blog add template-->
+    <script type="text/x-handlebars-template" id="add-tpl">
+        <h2>Adding a New Blog</h2>
+        <form class="form-add" role="form">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control" id="title" placeholder="Enter Your Blog Title">
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea name="content" class="form-control" rows="20"></textarea>
+            </div>
+            <button class="btn btn-sm btn-primary btn-block" tpye="submit">Submit</button>
+        </form>
+    </script>
+    
+    <script type="text/template" id="edit-tpl">
+        <h2>Edit Blog</h2>
+        <form class="form-edit" role="form">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input name="title" type="text" class="form-control" id="title" value="{{title}}"></input>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea name="content" class="form-control" rows="20">{{{content}}}</textarea>
+            </div>
+            <button class="btn btn-sm btn-primary btn-block" type="submit">Submit</button>
+        </form>
+    </script>
+    
+    <script id="blogs-admin-tpl" type="text/x-handlebars-template">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each blog}}
+                <tr>
+                    <td><a class="app-link" href="#">{{title}}</a></td>
+                    <td>{{authorName}}</td>
+                    <td>{{time}}</td>
+                    <td>
+                        <a class="app-link app-edit" href="edit/{{objectId}}">Edit</a> |
+                        <a class="app-link" href="#">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script> 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
+        ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Parse.js -->
@@ -140,6 +214,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/blog.js"></script>
+    <!-- bootstrap3-wysihtml5.min.css -->
+    <script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="js/bootstrap3-wysihtml5.min.js"></script>
 </body>
 
 </html>
